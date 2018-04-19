@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}Login page{% endblock %}
+{% block head %}
+  {{ parent() }}
+  <link href="../../css/connexion.css" rel="stylesheet">
+  <style type="text/css">
+    .important { color: #336699; }
+  </style>
+{% endblock %}
+{% block content %}
+    <form class="form-signin" action="{{ path_for('validLogin') }}" method="post">
+      <h1 class="h3 mb-3 font-weight-normal">Bienvenue, merci de vous authentifier</h1>
+	  {% if message %}
+		<div class="error_message">{{message}}</div>
+	  {% endif %}
+      <label for="inputEmail" class="sr-only">Adresse mail</label>
+      <input name="login" type="email" id="inputEmail" class="form-control" placeholder="Adresse mail" required autofocus>
+      <label for="inputPassword" class="sr-only">Mot de passe</label>
+      <input name="mdp" type="password" id="inputPassword" class="form-control" placeholder="Mot de passe" required>
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Connexion</button>
+	  <p class="mt-5 mb-3 text-muted">BTS SIO - &copy; 2017-2018</p>
+    </form>
+{% endblock %}

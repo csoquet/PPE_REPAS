@@ -1,0 +1,218 @@
+{% extends "layoutglobal.html" %}
+
+{% block title %}Accueil {% endblock %}
+
+{% block content %}
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">Bienvenue</h4>
+              <p class="text-muted">Cette application centralise les services auxquels vous avez accés en tant que membre de notre association.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Menu</h4>
+              <ul class="list-unstyled">
+			  <li><a href="#" class="text-white">Accueil</a></li>
+                <li><a href="#" class="text-white">Votre profil</a></li>
+                <li><a href="#" class="text-white">Contact</a></li>
+                <li><a href="{{ path_for('deconnexion') }}" class="text-white">Se déconnecter</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <strong>{{ session.nomUser ~ " " ~ session.prenomUser  }}</strong>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main role="main">
+
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">Bienvenue cher membre</h1>
+          <p class="lead text-muted">Retrouvez ci-dessous l'ensemble des modules offerts par l'association.</p>
+          <!--
+		  <p>
+            <a href="#" class="btn btn-primary my-2">Main call to action</a>
+            <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+          </p>
+		  -->
+        </div>
+      </section>
+
+      <div class="album py-5 bg-light">
+        <div class="container">
+
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Suivi de poids/alimentation" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Ce module vous permettra de suivre l'évolution du poids de votre animal et de gérer ses quantités de nourriture.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+				  <a href="{{ path_for('listeChien') }}" class="btn btn-primary my-2">Accéder au module</a>
+                    <div class="btn-group">
+					  
+                      
+                    </div>
+					<!--
+                    <small class="text-muted">9 mins</small>
+					-->
+                  </div>
+                </div>
+              </div>
+            </div>
+			<div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Sorties et balades" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Ce module vous permettra de gérer les sorties ou balades faîtes par votre animal. Utile pour les chiots et les adultes.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+				  <a href="#" class="btn btn-primary my-2">Accéder au module</a>
+                    <div class="btn-group">
+					  
+                      
+                    </div>
+					<!--
+                    <small class="text-muted">9 mins</small>
+					-->
+                  </div>
+                </div>
+              </div>
+            </div>
+			<div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Hygiène" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Ce module vous permettra de recenser les pipi/caca de votre animal et de consigner les accidents. Utile pour les chiots.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+				  <a href="#" class="btn btn-primary my-2">Accéder au module</a>
+                    <div class="btn-group">
+					  
+                      
+                    </div>
+					<!--
+                    <small class="text-muted">9 mins</small>
+					-->
+                  </div>
+                </div>
+              </div>
+            </div>
+			
+			<div class="col-md-4 hidden">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Services / garderie" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Ce module vous permettra de poster / consulter les annonces de services comme la garde de votre animal.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+				  <a href="#" class="btn btn-primary my-2">Accéder au module</a>
+                    <div class="btn-group">
+					  
+                      
+                    </div>
+					<!--
+                    <small class="text-muted">9 mins</small>
+					-->
+                  </div>
+                </div>
+              </div>
+            </div>
+			
+			<div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Services / garderie" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Ce module vous permettra de poster / consulter les annonces de services comme la garde de votre animal.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+				  <a href="#" class="btn btn-primary my-2">Accéder au module</a>
+                    <div class="btn-group">
+					  
+                      
+                    </div>
+					<!--
+                    <small class="text-muted">9 mins</small>
+					-->
+                  </div>
+                </div>
+              </div>
+            </div>
+			
+			<div class="col-md-4 hidden">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Services / garderie" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">Ce module vous permettra de poster / consulter les annonces de services comme la garde de votre animal.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+				  <a href="#" class="btn btn-primary my-2">Accéder au module</a>
+                    <div class="btn-group">
+					  
+                      
+                    </div>
+					<!--
+                    <small class="text-muted">9 mins</small>
+					-->
+                  </div>
+                </div>
+              </div>
+            </div>
+			
+			<!--
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
+                    <small class="text-muted">9 mins</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+			-->
+
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Retour haut de page</a>
+        </p>
+        <p>Copyright 2018 - BTS SIO</p>
+      </div>
+    </footer>
+
+
+{% endblock %}

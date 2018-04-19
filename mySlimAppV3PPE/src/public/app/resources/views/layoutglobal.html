@@ -1,0 +1,81 @@
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	{% block head %}
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link href="../../css/album.css" rel="stylesheet">
+    <title>{% block title %}{% endblock %}</title>
+	{% endblock %}
+</head>
+<body>
+	
+	
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../js/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../js/popper.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/holder.min.js"></script>
+	
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
+	<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart2);
+	  google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Date', 'Poids'],
+		  {% for poids in lesPoids %}
+			["{{poids.date}}", {{poids.poids}}],
+		  {% endfor %}
+        ]);
+
+        var options = {
+		  colors:['#ff4040'],
+          title: 'Statistiques du poids',
+          hAxis: {title: 'Date',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+	 
+
+      function drawChart2() {
+        var data = google.visualization.arrayToDataTable([
+          ['Date', 'Quantite'],
+		  {% for quantite in Alim %}
+			["{{quantite.date}}", {{quantite.quantite}}],
+		  {% endfor %}
+        ]);
+
+        var options = {
+		  colors:['#ff4040'],
+          title: "Statistiques de l'alimentation",
+          hAxis: {title: 'Date',  titleTextStyle: {color: '#333'}},
+          vAxis: {minValue: 0}
+		  
+        };
+
+        var chart = new google.visualization.AreaChart(document.getElementById('chart_div2'));
+        chart.draw(data, options);
+      }
+    </script>
+	
+	
+
+
+
+	
+	{% block content %}{% endblock %}
+	
+</body>
+</html>

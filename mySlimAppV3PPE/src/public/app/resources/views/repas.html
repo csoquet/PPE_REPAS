@@ -1,0 +1,88 @@
+{% extends "layoutglobal.html" %}
+
+{% block title %}Repas du chien{% endblock %}
+
+{% block content %}
+
+<header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">Bienvenue</h4>
+              <p class="text-muted">Cette application centralise les services auxquels vous avez accés en tant que membre de notre association.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Menu</h4>
+              <ul class="list-unstyled">
+			  <li><a href="#" class="text-white">Accueil</a></li>
+                <li><a href="#" class="text-white">Votre profil</a></li>
+                <li><a href="#" class="text-white">Contact</a></li>
+                <li><a href="{{ path_for('deconnexion') }}" class="text-white">Se déconnecter</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <strong>{{ session.nomUser ~ " " ~ session.prenomUser  }}</strong>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+	
+<section class="jumbotron text-center">
+        <div class="container"> <!-- ENREGISTREMENT REPAS DU CHIEN -->
+		  <h1 class="jumbotron-heading"><b>Repas</b></h1><br/>
+          <h2 class="jumbotron-heading">Nom du chien : {{ leChien }}</h1>
+		</div>
+	<br/>
+	<form class="form-signin" action="{{ path_for('enregistrementRepas') }}" method="post">
+      <label for="inputDate" class="sr-only">Date du repas</label>
+      <input name="date" type="date" id="inputDate" class="form-control" placeholder="Date du repas" required>
+	  
+      <label for="inputHeure" class="sr-only">Heure du repas</label>
+      <input name="heure" type="time" id="inputHeure" class="form-control" placeholder="Heure du repas" required>
+	  
+	  <label for="inputGrammes" class="sr-only">Quantité (grammes)</label>
+      <input name="grammes" type="text" id="inputGrammes" class="form-control" placeholder="Quantité (grammes)" required>
+	  
+	  <br/><h4 class="jumbotron-heading">Marque croquette</h4>
+      <select name="marque">
+		{% for marque in lesMarques %}
+         <option value="{{ marque }}">{{ marque }}</option>
+		{% endfor %}
+		</select>
+	  <br/><br/>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Enregistrer</button>
+    </form>
+	
+	<br/><br/><br/>
+	
+	 <div class="container"> <!-- ENREGISTREMENT NOUVELLE MARQUE DE CROQUETTE -->
+		  <h1 class="jumbotron-heading"><b>Ajouter une nouvelle marque de croquette</b></h1><br/>
+		</div>
+	<br/>
+	<form class="form-signin" action="{{ path_for('enregistrementMarqueCroquette') }}" method="post">
+      <label for="inputMarque" class="sr-only">Nom de la marque</label>
+      <input name="newMarque" type="text" id="inputMarque" class="form-control" placeholder="Nom de la marque" required>
+	
+	  <br/><br/>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Enregistrer</button>
+    </form>
+	<form class="form-signin" action="{{ path_for('retourMenu') }}" method="post">
+		<button class="btn btn-lg btn-primary btn-block" type="submit">Retour au menu</button>
+	</form>
+	
+	
+	
+	
+</section>
+	
+
+{% endblock %}
